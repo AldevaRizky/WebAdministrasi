@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->middleware('role:admin')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+        Route::resource('kategori-barang', App\Http\Controllers\Admin\KategoriBarangController::class);
+        Route::resource('barang', App\Http\Controllers\Admin\BarangController::class);
     });
 
     // Prefix untuk Karyawan

@@ -26,11 +26,11 @@ $menus = [
         'submenu' => [
             [
                 'name' => 'Kategori Barang',
-                'url' => '#',
+                'url' => route('kategori-barang.index'),
             ],
             [
                 'name' => 'Management Barang',
-                'url' => '#',
+                'url' => route('barang.index'),
             ],
         ],
     ],
@@ -59,7 +59,7 @@ $menus = [
                         <i class="menu-icon tf-icons {{ $menu['icon'] }}"></i>
                         <div class="text-truncate">{{ $menu['name'] }}</div>
                         @isset($menu['submenu'])
-                            <span class="badge rounded-pill bg-danger ms-auto">8</span>
+                            <span class="badge rounded-pill bg-danger ms-auto">2</span>
                         @endisset
                     </a>
                     
