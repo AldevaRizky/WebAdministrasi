@@ -36,6 +36,7 @@ $menus = [
     ],
 ];
 @endphp
+
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="#" class="app-brand-link">
@@ -54,7 +55,11 @@ $menus = [
     <ul class="menu-inner py-1">
         @foreach ($menus as $menu)
             @if (in_array(auth()->user()->role, $menu['roles']))
-                <li class="menu-item {{ request()->url() === $menu['url'] ? 'active' : '' }}">
+                @php
+                    $isSubmenuActive = isset($menu['submenu']) && collect($menu['submenu'])->contains(fn($submenu) => request()->url() === $submenu['url']);
+                @endphp
+
+                <li class="menu-item {{ request()->url() === $menu['url'] || $isSubmenuActive ? 'active open' : '' }}">
                     <a href="{{ $menu['url'] }}" class="menu-link {{ isset($menu['submenu']) ? 'menu-toggle' : '' }}">
                         <i class="menu-icon tf-icons {{ $menu['icon'] }}"></i>
                         <div class="text-truncate">{{ $menu['name'] }}</div>
