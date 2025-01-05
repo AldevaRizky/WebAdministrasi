@@ -4,19 +4,50 @@
 
 Proyek ini adalah aplikasi web administrasi yang dilengkapi dengan sistem autentikasi untuk mengakses halaman web. Aplikasi ini memiliki dua role pengguna, yaitu **admin** dan **karyawan**. Setiap role memiliki hak akses yang berbeda:
 
-- **Admin**: Dapat mengakses halaman **manage users**, yang mencakup sistem CRUD untuk mengelola data pengguna.
+- **Admin**: Admin memiliki akses penuh untuk mengelola **data pengguna, barang, dan kategori**.
 - **Karyawan**: Hanya dapat mengakses halaman **dashboard**.
 
 Proyek ini dibangun dengan menggunakan **Laravel Breeze** untuk autentikasi pengguna, **Livewire** untuk interaktivitas yang dinamis di sisi klien, dan **Tailwind CSS** untuk desain antarmuka yang responsif dan modern. Struktur proyek mengikuti pola **MVC (Model-View-Controller)** untuk memisahkan logika bisnis, tampilan, dan data.
 
+
+## Fitur
+
+- **Autentikasi Pengguna**
+  - Login dengan dua peran: Admin dan Karyawan.
+  
+- **Dashboard Admin**
+  - Akses penuh ke fitur CRUD untuk:
+    - Pengguna
+    - Barang
+    - Kategori
+
+- **Dashboard Karyawan**
+  - Akses terbatas hanya untuk melihat dashboard.
+
+## Teknologi yang Digunakan
+
+- **Backend:** Laravel
+- **Frontend:** Tailwind CSS
+- **Database:** MySQL
+
+## Prerequisites
+
+Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
+
+- PHP (versi 8.0 atau lebih tinggi)
+- Composer
+- Node.js dan npm
+- MySQL (
+
+  
 ## Cara Instalasi dan Penggunaan
 
 Berikut adalah langkah-langkah untuk menginstal dan menjalankan proyek ini di lingkungan lokal Anda:
 
 1. **Kloning repositori:**
    ```bash
-   git clone https://github.com/dimasprayogox/web-praktikum.git
-   cd web-praktikum
+   git clone https://github.com/AldevaRizky/WebAdministrasi.git
+   cd WebAdministrasi
 
 2. **Instalasi dependensi:**
    Pastikan Anda memiliki Composer dan Node.js yang terinstal pada sistem Anda. Kemudian jalankan perintah berikut untuk        menginstal dependensi PHP dan frontend:**
@@ -37,14 +68,14 @@ Berikut adalah langkah-langkah untuk menginstal dan menjalankan proyek ini di li
    php artisan key:generate
 
 6. **Migrasi dan seeding database:**
-   Jalankan migrasi untuk membuat tabel-tabel yang diperlukan oleh aplikasi:
+   Jalankan migrasi untuk membuat tabel-tabel yang diperlukan oleh aplikasi dan jalankan seeder untuk mengisi data awal:
    ```bash
    php artisan migrate
+   php artisan db:seed
 
 7. **Jalankan server lokal:**
    Setelah semua langkah di atas selesai, Anda dapat menjalankan server lokal untuk mengakses aplikasi:
    ```bash
-   npm run dev
    php artisan serve
 
 
@@ -63,12 +94,6 @@ Password: password
 
 Email: karyawan@example.com
 Password: password
-
-## Fitur Utama
-Autentikasi Pengguna: Sistem login untuk admin dan karyawan dengan menggunakan Laravel Breeze.
-Manajemen Pengguna (Admin): Admin dapat menambah, mengubah, menghapus, dan melihat daftar pengguna.
-Dashboard (Karyawan): Karyawan dapat mengakses halaman dashboard.
-Responsif dan Modern: Menggunakan Tailwind CSS untuk tampilan yang responsif dan desain modern.
 
 
 ## Struktur File Proyek
