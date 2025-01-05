@@ -43,7 +43,7 @@ $menus = [
             <span class="app-brand-logo demo">
                 <img src="{{ asset('assets/img/logo/83790f2b43f00be.png') }}" alt="Logo" width="50">
             </span>
-            <span class="app-brand-text demo menu-text fw-bold ms-2">DimasGay</span>
+            <span class="app-brand-text demo menu-text fw-bold ms-2">CumaEvos</span>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
             <i class="bx bx-chevron-left bx-sm d-flex align-items-center justify-content-center"></i>
