@@ -1,66 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Web Administrasi dengan Sistem Autentikasi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi Proyek
 
-## About Laravel
+Proyek ini adalah aplikasi web administrasi yang dilengkapi dengan sistem autentikasi untuk mengakses halaman web. Aplikasi ini memiliki dua role pengguna, yaitu **admin** dan **karyawan**. Setiap role memiliki hak akses yang berbeda:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Admin**: Dapat mengakses halaman **manage users**, yang mencakup sistem CRUD untuk mengelola data pengguna.
+- **Karyawan**: Hanya dapat mengakses halaman **dashboard**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Proyek ini dibangun dengan menggunakan **Laravel Breeze** untuk autentikasi pengguna, **Livewire** untuk interaktivitas yang dinamis di sisi klien, dan **Tailwind CSS** untuk desain antarmuka yang responsif dan modern. Struktur proyek mengikuti pola **MVC (Model-View-Controller)** untuk memisahkan logika bisnis, tampilan, dan data.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Cara Instalasi dan Penggunaan
 
-## Learning Laravel
+Berikut adalah langkah-langkah untuk menginstal dan menjalankan proyek ini di lingkungan lokal Anda:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Kloning repositori:**
+   ```bash
+   git clone https://github.com/dimasprayogox/web-praktikum.git
+   cd web-praktikum
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. **Instalasi dependensi:**
+   Pastikan Anda memiliki Composer dan Node.js yang terinstal pada sistem Anda. Kemudian jalankan perintah berikut untuk        menginstal dependensi PHP dan frontend:**
+   ```bash
+   composer install
+   npm install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. **Salin file .env.example menjadi .env:**
+   ```bash
+   cp .env.example .env
 
-## Laravel Sponsors
+4. **Konfigurasi database:**
+   Edit file .env dan atur pengaturan database sesuai dengan konfigurasi lingkungan Anda (seperti nama database, username,         password, dsb).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. **Generate kunci aplikasi:**
+   Jalankan perintah untuk menghasilkan kunci aplikasi Laravel:
+   ```bash
+   php artisan key:generate
 
-### Premium Partners
+6. **Migrasi dan seeding database:**
+   Jalankan migrasi untuk membuat tabel-tabel yang diperlukan oleh aplikasi:
+   ```bash
+   php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+7. **Jalankan server lokal:**
+   Setelah semua langkah di atas selesai, Anda dapat menjalankan server lokal untuk mengakses aplikasi:
+   ```bash
+   npm run dev
+   php artisan serve
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+8. **Akses aplikasi:**
+   Buka browser dan akses aplikasi di http://127.0.0.1:8000.
 
-## Code of Conduct
+   
+## Login sebagai Admin: 
+**Anda dapat menggunakan data dummy untuk login sebagai Admin:**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Email: admin@example.com
+Password: password
 
-## Security Vulnerabilities
+## Login sebagai Karyawan: 
+**Anda dapat menggunakan data dummy untuk login sebagai Karyawan:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Email: karyawan@example.com
+Password: password
 
-## License
+## Fitur Utama
+Autentikasi Pengguna: Sistem login untuk admin dan karyawan dengan menggunakan Laravel Breeze.
+Manajemen Pengguna (Admin): Admin dapat menambah, mengubah, menghapus, dan melihat daftar pengguna.
+Dashboard (Karyawan): Karyawan dapat mengakses halaman dashboard.
+Responsif dan Modern: Menggunakan Tailwind CSS untuk tampilan yang responsif dan desain modern.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Struktur File Proyek
+**Berikut adalah penjelasan tentang struktur file proyek yang digunakan dalam aplikasi ini:**
+```bash
+    ├── app/
+    │   ├── Http/
+    │   │   ├── Controllers/       # Kontroler aplikasi, menangani logika aplikasi
+    │   │   ├── Livewire/          # Komponen Livewire untuk interaktivitas
+    │   ├── Models/                # Model Eloquent untuk berinteraksi dengan database
+    ├── bootstrap/                 # File bootstrap untuk aplikasi Laravel
+    ├── config/                    # File konfigurasi untuk aplikasi
+    ├── database/                  # Folder untuk file migrasi dan seeders
+    │   ├── migrations/            # Migrasi untuk pembuatan tabel
+    │   ├── seeders/               # Seeder untuk pengisian data awal
+    ├── public/                    # Folder yang dapat diakses secara publik (assets, index.php)
+    │   ├── css/                   # File CSS (termasuk Tailwind CSS)
+    │   ├── js/                    # File JavaScript
+    ├── resources/                 # Tampilan dan sumber daya frontend
+    │   ├── views/                 # File Blade untuk tampilan halaman
+    │   ├── lang/                  # File terjemahan aplikasi
+    ├── routes/                    # File rute aplikasi (web.php, api.php)
+    ├── storage/                   # File sementara dan log
+    ├── tests/                     # Folder untuk file testing aplikasi
+    ├── .env                       # File konfigurasi lingkungan (database, kunci aplikasi)
+    ├── artisan                    # CLI Laravel untuk menjalankan perintah
+    ├── composer.json              # File dependensi PHP (Composer)
+    ├── package.json               # File dependensi frontend (npm)
+    ├── tailwind.config.js         # Konfigurasi untuk Tailwind CSS
+    └── webpack.mix.js             # Konfigurasi build frontend (Laravel Mix)
+    
+
+    
